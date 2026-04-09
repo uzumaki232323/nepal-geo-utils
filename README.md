@@ -98,50 +98,6 @@ The project currently verifies with:
 mvn test
 ```
 
-For release packaging:
-
-```bash
-mvn -Prelease "-Dgpg.skip=true" clean package
-```
-
-## Hokage Route to Maven Central
-
-This project is configured for Sonatype Central Portal publishing with a dedicated `release` profile.
-
-Before publishing, make sure you have:
-
-- verified the `io.github.uzumaki232323` namespace in Sonatype Central
-- a Central Portal user and token
-- a working GPG key for signing artifacts
-- credentials configured in `~/.m2/settings.xml`
-
-Example `settings.xml` entry:
-
-```xml
-<settings>
-    <servers>
-        <server>
-            <id>central</id>
-            <username>YOUR_CENTRAL_PORTAL_USERNAME</username>
-            <password>YOUR_CENTRAL_PORTAL_TOKEN</password>
-        </server>
-    </servers>
-</settings>
-```
-
-Release command:
-
-```bash
-mvn -Prelease clean deploy
-```
-
-The `release` profile will:
-
-- attach source JARs
-- attach Javadoc JARs
-- sign artifacts with GPG
-- publish using the Sonatype Central Publishing plugin
-
 ## Shinobi Credits
 
 Developed by Gaurav Suwal ([`@uzumaki232323`](https://github.com/uzumaki232323)).
